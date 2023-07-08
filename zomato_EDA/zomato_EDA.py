@@ -7,13 +7,13 @@ import difflib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
-df = pd.read_csv('C:/Users/Admin/Desktop/Python_For_DevOps/Projects/Zomato_EDA/zomato1.csv', encoding=('ISO-8859-1'))
+df = pd.read_csv('zomato1.csv', encoding=('ISO-8859-1'))
 df.head()
 df.info()
 df.isnull().sum()
 df.info()
 df['Country Code'].value_counts()
-df_country = pd.read_excel('C:/Users/Admin/Desktop/Python_For_DevOps/Projects/Zomato_EDA/Country-Code.xlsx')
+df_country = pd.read_excel('Country-Code.xlsx')
 df = pd.merge(df , df_country , how = 'left' , on = 'Country Code')
 fig = px.scatter_mapbox(df,
                         lat="Latitude",
